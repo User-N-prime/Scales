@@ -3,7 +3,7 @@ void setup() {
 }
 
 void draw() {
-  // Calculate dynamic colors based on mouse position
+  // calculate colors on mouse
   float red = float(mouseX) / width;
   float green = float(mouseY) / height;
   float blue = float(mouseX + mouseY) / (width + height);
@@ -19,7 +19,7 @@ void draw() {
 }
 
 void setGrad(float x, float y, float w, float h, color c1, color c2) {
-  // Create a vertical gradient from c1 to c2
+  // gradient from c1 to c2
   for (int i = 0; i < h; i++) {
     float inter = map(i, 0, h, 0, 1);
     color c = lerpColor(c1, c2, inter);
@@ -29,7 +29,7 @@ void setGrad(float x, float y, float w, float h, color c1, color c2) {
 }
 
 void petEffect(float a, float b) {
-  // Calculate the distance from the mouse to the rectangle position
+  //distance from mouse to rect pos
   double legs = Math.pow(mouseX - a, 2) + Math.pow(mouseY - b, 2);
   float distance = sqrt((float)legs);
   float littleDis = distance/3.0000000;
@@ -58,3 +58,4 @@ void petEffect(float a, float b) {
   ellipse(-10, -10,15,15);
   popMatrix();
 }
+
