@@ -14,13 +14,7 @@ void draw() {
   // Draw gradient
   setGrad(0, 0, width, height, aCol, bCol);
 
-  // Draw rotating, scaled rectangle
-  pushMatrix();
-  translate(100, 100); // Move to position (a, b)
-  scale(mouseX / float(width), mouseY / float(height)); // Scale based on mouse position
-  rotate(mouseX * 0.01); // Rotate based on mouseX
-  rect(0, 0, 20, 20, 60); // Draw rectangle with rounded corners
-  popMatrix();
+  scale(100,100);
 }
 
 void setGrad(float x, float y, float w, float h, color c1, color c2) {
@@ -33,5 +27,9 @@ void setGrad(float x, float y, float w, float h, color c1, color c2) {
   }
 }
 
-
-
+void scale(a, b) {
+  pushMatrix();
+  translate(a + 10, b + 10); // Move to position (a, b)
+  rotate(mouseX * 0.01); // Rotate based on mouseX
+  rect(a, b, 20, 20, 60); // Draw rectangle with rounded corners
+  popMatrix();
