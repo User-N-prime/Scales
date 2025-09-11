@@ -30,17 +30,34 @@ void setGrad(float x, float y, float w, float h, color c1, color c2) {
 
 void drawScaledRotatedRect(float a, float b) {
   pushMatrix();
-  translate(a + 10, b + 10);
+  
+  // Move the origin to the rectangle's position (a, b)
+  translate(a, b);  // Move origin to the top-left corner of the rectangle
+  
+  // Apply scaling based on mouse position (this is the scaling factor)
   scale(mouseX / float(width), mouseY / float(height));
+  
+  // Translate to the center of the rectangle (because rect() will draw it centered at (0, 0))
+  translate(10, 10); // Center the rectangle (20x20 size, so we move by half)
+  
+  // Now apply rotation around the center
   rotate(mouseX * 0.01);
-  rect(a, b, 20, 20, 60);
+  
+  // Draw the rectangle centered at (0, 0)
+  rect(-10, -10, 20, 20, 60);  // Use (-10, -10) to center the rectangle
+  
+  // Add a triangle to simulate a "scale"
+  // Adjust the triangle's position based on the rectangle's center
   pushMatrix();
-    rotate(-PI / 6);  // Slightly rotate the triangle to give it an organic feel
-    fill(100, 150, 200, 150);  // Use a semi-transparent fill for some texture
-    triangle(a + 20, b + 20, a + 20, b, a + 25, b + 10);
+    // Rotate the triangle slightly for a more natural, irregular effect
+    rotate(-PI / 6);  
+    fill(100, 150, 200, 150);  // Semi-transparent fill
+    triangle(10, 10, 20, 10, 15, 20);  // Small triangle next to the rectangle
   popMatrix();
+
   popMatrix();
 }
+
 
 
 
