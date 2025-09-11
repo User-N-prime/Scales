@@ -11,9 +11,9 @@ void draw() {
   color aCol = color(red * 90, green * 142, blue * 230);
   color bCol = color((1 - red) * 7, (1 - green) * 78, (1 - blue) * 196);
   setGrad(0, 0, width, height, aCol, bCol);
-   for (float x = 50; x < width; x += 60) {
-    for (float y = 50; y < height; y += 60) {
-      drawScaledRotatedRect(x, y);
+   for (float x = 10; x < width; x += 70) {
+    for (float y = 10; y < height; y += 70) {
+      petEffect(x, y);
     }
   }
 }
@@ -28,37 +28,33 @@ void setGrad(float x, float y, float w, float h, color c1, color c2) {
   }
 }
 
-void drawScaledRotatedRect(float a, float b) {
-  pushMatrix();
+void petEffect(float a, float b) {
+  // Calculate the distance from the mouse to the rectangle position
+  double legs = Math.pow(mouseX - a, 2) + Math.pow(mouseY - b, 2);
+  float distance = sqrt((float)legs);
+  float littleDis = distance/3.0000000;
+  if (littleDis < 40)
+    littleDis = 40;
+  if (littleDis > 60)
+    littleDis = 60;
+  float bigDis = distance/2.0000000;
+  if (bigDis < 60)
+    bigDis = 60;
+  if (bigDis > 90)
+    bigDis = 90;
+  float grad_2 = map(distance, 0, 1000,123,225);
+  float grad_3 = map(distance, 0, 1000,100,255);
+  float grad_4 = map(distance, 0, 1000,50,200);
   
-  // Move the origin to the rectangle's position (a, b)
-  translate(a, b);  // Move origin to the top-left corner of the rectangle
-  
-  // Apply scaling based on mouse position (this is the scaling factor)
-  scale(mouseX / float(width), mouseY / float(height));
-  
-  // Translate to the center of the rectangle (because rect() will draw it centered at (0, 0))
-  translate(10, 10); // Center the rectangle (20x20 size, so we move by half)
-  
-  // Now apply rotation around the center
-  rotate(mouseX * 0.01);
-  
-  // Draw the rectangle centered at (0, 0)
-  rect(-10, -10, 20, 20, 60);  // Use (-10, -10) to center the rectangle
-  
-  // Add a triangle to simulate a "scale"
-  // Adjust the triangle's position based on the rectangle's center
-  pushMatrix();
-    // Rotate the triangle slightly for a more natural, irregular effect
-    rotate(-PI / 6);  
-    fill(100, 150, 200, 150);  // Semi-transparent fill
-    triangle(10, 10, 20, 10, 15, 20);  // Small triangle next to the rectangle
-  popMatrix();
 
+    
+  pushMatrix();
+  translate(a + 10, b + 10);
+  rotate(distance * 0.01);
+  noStroke();
+  fill(0, grad_2, grad_3, grad_4);
+  ellipse(-10, -10, littleDis, bigDis);
+  fill(255,grad_2,0,grad_4);
+  ellipse(-10, -10,15,15);
   popMatrix();
 }
-
-
-
-
-
