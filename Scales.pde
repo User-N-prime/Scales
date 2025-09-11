@@ -33,3 +33,4 @@ void scale(a, b) {
   rotate(mouseX * 0.01); // Rotate based on mouseX
   rect(a, b, 20, 20, 60); // Draw rectangle with rounded corners
   popMatrix();
+}
