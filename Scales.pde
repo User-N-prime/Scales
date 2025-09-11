@@ -42,9 +42,10 @@ void petEffect(float a, float b) {
     bigDis = 60;
   if (bigDis > 90)
     bigDis = 90;
-  float grad_2 = map(distance, 0, 1000,123,225);
-  float grad_3 = map(distance, 0, 1000,100,255);
-  float grad_4 = map(distance, 0, 1000,50,200);
+  float grad_2 = map(distance, 0, 1000, 123, 225);
+  float grad_3 = map(distance, 0, 1000, 100, 255);
+  float grad_4 = map(distance, 0, 1000, 50, 200);
+  float offset = map(Math.random(), 0.0, 1.0, -1, 1);
   
 
     
@@ -54,8 +55,9 @@ void petEffect(float a, float b) {
   noStroke();
   fill(0, grad_2, grad_3, grad_4);
   ellipse(-10, -10, littleDis, bigDis);
-  fill(255,grad_2,0,grad_4);
-  ellipse(-10, -10,15,15);
+  fill(255, grad_2 ,0 ,grad_4);
+  ellipse(-10, -10, 15, 15);
   popMatrix();
 }
+
 
