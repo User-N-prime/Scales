@@ -3,20 +3,19 @@ void setup() {
 }
 
 void draw() {
+  // Calculate dynamic colors based on mouse position
   float red = float(mouseX) / width;
   float green = float(mouseY) / height;
   float blue = float(mouseX + mouseY) / (width + height);
 
   color aCol = color(red * 90, green * 142, blue * 230);
   color bCol = color((1 - red) * 7, (1 - green) * 78, (1 - blue) * 196);
-
   setGrad(0, 0, width, height, aCol, bCol);
-
-  scale(100,100);
+  drawScaledRotatedRect(100, 100); // Draw rectangle at position (100, 100)
 }
 
 void setGrad(float x, float y, float w, float h, color c1, color c2) {
-  // gradient from c1 to c2
+  // Create a vertical gradient from c1 to c2
   for (int i = 0; i < h; i++) {
     float inter = map(i, 0, h, 0, 1);
     color c = lerpColor(c1, c2, inter);
@@ -25,13 +24,11 @@ void setGrad(float x, float y, float w, float h, color c1, color c2) {
   }
 }
 
-void scale(a, b) {
+void drawScaledRotatedRect(float a, float b) {
   pushMatrix();
   translate(a + 10, b + 10);
   scale(mouseX / float(width), mouseY / float(height));
   rotate(mouseX * 0.01);
-  rect(a, b, 20, 20, 60);
+  rect(-10, -10, 20, 20, 60);
   popMatrix();
 }
-
-
