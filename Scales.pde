@@ -13,7 +13,7 @@ void draw() {
   setGrad(0, 0, width, height, aCol, bCol);
    for (float x = 50; x < width; x += 60) {
     for (float y = 50; y < height; y += 60) {
-      drawScaledRotatedRect(x, y, x + 15, y + 15);
+      drawScaledRotatedRect(x, y);
     }
   }
 }
@@ -41,6 +41,7 @@ void drawScaledRotatedRect(float a, float b) {
   popMatrix();
   popMatrix();
 }
+
 
 
 
