@@ -45,10 +45,10 @@ void petEffect(float a, float b) {
   float grad_2 = map(distance, 0, 1000, 123, 225);
   float grad_3 = map(distance, 0, 1000, 100, 255);
   float grad_4 = map(distance, 0, 1000, 50, 200);
-  float offset = map(Math.random(), 0.0, 1.0, -1, 1);
+  float offset = map(Math.random(), 0.0, 1.0, -2, 2);
   
 
-    
+  // "scale" design
   pushMatrix();
   translate(a + 10, b + 10);
   rotate(distance * 0.01);
@@ -59,6 +59,7 @@ void petEffect(float a, float b) {
   ellipse(-10 + offset, -10 + offset, 15, 15);
   popMatrix();
 }
+
 
 
 
