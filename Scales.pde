@@ -11,7 +11,11 @@ void draw() {
   color aCol = color(red * 90, green * 142, blue * 230);
   color bCol = color((1 - red) * 7, (1 - green) * 78, (1 - blue) * 196);
   setGrad(0, 0, width, height, aCol, bCol);
-  drawScaledRotatedRect(100, 100); // Draw rectangle at position (100, 100)
+   for (float x = 50; x < width; x += 60) {
+    for (float y = 50; y < height; y += 60) {
+      drawScaledRotatedRect(x, y, x + 15, y + 15);
+    }
+  }
 }
 
 void setGrad(float x, float y, float w, float h, color c1, color c2) {
@@ -37,4 +41,5 @@ void drawScaledRotatedRect(float a, float b, float x, float y) {
   popMatrix();
   popMatrix();
 }
+
 
