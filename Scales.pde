@@ -28,7 +28,7 @@ void setGrad(float x, float y, float w, float h, color c1, color c2) {
   }
 }
 
-void drawScaledRotatedRect(float a, float b, float x, float y) {
+void drawScaledRotatedRect(float a, float b) {
   pushMatrix();
   translate(a + 10, b + 10);
   scale(mouseX / float(width), mouseY / float(height));
@@ -37,9 +37,10 @@ void drawScaledRotatedRect(float a, float b, float x, float y) {
   pushMatrix();
     rotate(-PI / 6);  // Slightly rotate the triangle to give it an organic feel
     fill(100, 150, 200, 150);  // Use a semi-transparent fill for some texture
-    triangle(x, y, x + 10, y, x + 5, y + 10);
+    triangle(a + 20, b + 20, a + 20, b, a + 25, b + 10);
   popMatrix();
   popMatrix();
 }
+
 
 
