@@ -3,7 +3,6 @@ void setup() {
 }
 
 void draw() {
-  // Calculate color components based on mouse position
   float red = float(mouseX) / width;
   float green = float(mouseY) / height;
   float blue = float(mouseX + mouseY) / (width + height);
@@ -11,14 +10,13 @@ void draw() {
   color aCol = color(red * 90, green * 142, blue * 230);
   color bCol = color((1 - red) * 7, (1 - green) * 78, (1 - blue) * 196);
 
-  // Draw gradient
   setGrad(0, 0, width, height, aCol, bCol);
 
   scale(100,100);
 }
 
 void setGrad(float x, float y, float w, float h, color c1, color c2) {
-  // Draw a gradient from c1 to c2
+  // gradient from c1 to c2
   for (int i = 0; i < h; i++) {
     float inter = map(i, 0, h, 0, 1);
     color c = lerpColor(c1, c2, inter);
@@ -29,8 +27,11 @@ void setGrad(float x, float y, float w, float h, color c1, color c2) {
 
 void scale(a, b) {
   pushMatrix();
-  translate(a + 10, b + 10); // Move to position (a, b)
-  rotate(mouseX * 0.01); // Rotate based on mouseX
-  rect(a, b, 20, 20, 60); // Draw rectangle with rounded corners
+  translate(100, 100); // Move to position (100, 100)
+  translate(10, 10);  // Move to the center of the rectangle (half of 20x20)
+  scale(mouseX / float(width), mouseY / float(height));
+  rotate(mouseX * 0.01);
+  rect(-10, -10, 20, 20, 60); // Positioning the rectangle to center around the origin
   popMatrix();
 }
+
