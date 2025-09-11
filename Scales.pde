@@ -27,11 +27,11 @@ void setGrad(float x, float y, float w, float h, color c1, color c2) {
 
 void scale(a, b) {
   pushMatrix();
-  translate(100, 100); // Move to position (100, 100)
-  translate(10, 10);  // Move to the center of the rectangle (half of 20x20)
+  translate(a + 10, b + 10);
   scale(mouseX / float(width), mouseY / float(height));
   rotate(mouseX * 0.01);
-  rect(-10, -10, 20, 20, 60); // Positioning the rectangle to center around the origin
+  rect(a, b, 20, 20, 60);
   popMatrix();
 }
+
 
