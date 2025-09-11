@@ -54,10 +54,11 @@ void petEffect(float a, float b) {
   rotate(distance * 0.01);
   noStroke();
   fill(0, grad_2, grad_3, grad_4);
-  ellipse(-10, -10, littleDis, bigDis);
+  ellipse(-10 + offset, -10 + offset, littleDis, bigDis);
   fill(255, grad_2 ,0 ,grad_4);
-  ellipse(-10, -10, 15, 15);
+  ellipse(-10 + offset, -10 + offset, 15, 15);
   popMatrix();
 }
+
 
 
