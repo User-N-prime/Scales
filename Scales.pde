@@ -65,4 +65,3 @@ void petEffect(int x, int y) {
   ellipse(-10 + offset, -10 + offset, 15, 15);
   popMatrix();
 }
-
