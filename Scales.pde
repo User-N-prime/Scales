@@ -12,7 +12,7 @@ void draw() {
   color aCol = color(red * 90, green * 142, blue * 230);
   color bCol = color((1 - red) * 7, (1 - green) * 78, (1 - blue) * 196);
   setGrad(0, 0, width, height, aCol, bCol);
-  // binary fission for loop
+  // binary fission (aka for loop)
   for (float x = 10; x < width; x += 70) {
     for (float y = 10; y < height; y += 70) {
       petEffect(x, y);
@@ -33,8 +33,8 @@ void setGrad(float x, float y, float w, float h, color c1, color c2) {
 void petEffect(int x, int y) {
   //distance from mouse to rect pos
   double legs = Math.pow(mouseX - x, 2) + Math.pow(mouseY - y, 2);
-  
   float distance = sqrt((float)legs);
+
   float littleDis = distance / 3.0000000;
   if (littleDis < 40)
     littleDis = 40;
@@ -65,3 +65,4 @@ void petEffect(int x, int y) {
   ellipse(-10 + offset, -10 + offset, 15, 15);
   popMatrix();
 }
+
